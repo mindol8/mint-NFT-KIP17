@@ -8,26 +8,32 @@ let address = document.querySelector("#address");
 let discription = document.querySelector("#discription");
 
 const onSubmit = async () => {
+    var data = new FormData()
+    data.append('img', img.files[0]);
+    data.append('name', _name.value);
+    data.append('symbol', symbol.value);
+    data.append("address", address.value);
+    data.append("discription", discription.value);
+
+    //formdata 내용 확인
+    //for (var pair of data.entries()) { console.log(pair[0] + ', ' + pair[1]); }
+
     await fetch(
         URL, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            name: _name.value,
-            symbol: symbol.value,
-            img: img,
-            address: address.value,
-            discription: discription.value
-        })
-
+        headers: {},
+        body: data
     })
         .then(res => {
-            alert(res);
+
+            if (res.ok) {
+                return alert("성공적으로 등록 됐습니다.");
+            } else {
+                throw new Error();
+            }
         })
         .catch(err => {
-            alert(err);
+            alert("빈항목을 채워주세요");
         })
 
 }
