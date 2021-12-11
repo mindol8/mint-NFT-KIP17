@@ -6,7 +6,8 @@ let symbol = document.querySelector("#symbol");
 let img = document.querySelector("#img");
 let address = document.querySelector("#address");
 let discription = document.querySelector("#discription");
-
+let myAddress = document.querySelector("#myaddress");
+let _list = document.querySelector("#list");
 const onSubmit = async () => {
     var data = new FormData()
     data.append('img', img.files[0]);
@@ -25,16 +26,19 @@ const onSubmit = async () => {
         body: data
     })
         .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            console.log(res);
+            myAddress.value = address.value;
+            let str = "";
+            res.forEach(el => {
+                str = str + el + "\n";
+            })
+            _list.value = str;
+            return alert("성공적으로 등록 됐습니다.");
+        })
 
-            if (res.ok) {
-                return alert("성공적으로 등록 됐습니다.");
-            } else {
-                throw new Error();
-            }
-        })
-        .catch(err => {
-            alert("빈항목을 채워주세요");
-        })
 
 }
 const button = document.querySelector("#button");
