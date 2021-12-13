@@ -34,7 +34,7 @@ const deploy = (name, symbol, account) => {
     }
 }
 
-const mint = async ({ name, symbol, address, discription, img }) => {
+const mint = async ({ name, symbol, address, description, img }) => {
     if (!isAddress(address)) {
         return [false, "올바른 주소형식이 아닙니다."];
     }
@@ -48,7 +48,7 @@ const mint = async ({ name, symbol, address, discription, img }) => {
             },
             "description": {
                 "type": "string",
-                "description": discription
+                "description": description
             },
             "image": {
                 "type": "string",

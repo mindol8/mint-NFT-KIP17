@@ -5,7 +5,7 @@ let _name = document.querySelector("#name");
 let symbol = document.querySelector("#symbol");
 let img = document.querySelector("#img");
 let address = document.querySelector("#address");
-let discription = document.querySelector("#discription");
+let description = document.querySelector("#description");
 let myAddress = document.querySelector("#myaddress");
 let _list = document.querySelector("#list");
 const onSubmit = async () => {
@@ -14,7 +14,7 @@ const onSubmit = async () => {
     data.append('name', _name.value);
     data.append('symbol', symbol.value);
     data.append("address", address.value);
-    data.append("discription", discription.value);
+    data.append("description", description.value);
 
     //formdata 내용 확인
     //for (var pair of data.entries()) { console.log(pair[0] + ', ' + pair[1]); }

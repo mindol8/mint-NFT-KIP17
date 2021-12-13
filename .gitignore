@@ -2,3 +2,4 @@
 *.env
 *kas-credential-KASKSZVFMK9649BH131ZVYDJ.json
 *issue.txt
+/files

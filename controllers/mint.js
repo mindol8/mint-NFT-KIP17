@@ -4,11 +4,11 @@ export default async (req, res) => {
     const name = req.body.name;
     const symbol = req.body.symbol;
     const address = req.body.address;
-    const discription = req.body.discription;
+    const description = req.body.description;
     const img = req.file;
 
-    if (name && symbol && address && discription && img) {
-        const [mintStatus, msg] = await mint({ name, symbol, address, discription, img });
+    if (name && symbol && address && description && img) {
+        const [mintStatus, msg] = await mint({ name, symbol, address, description, img });
         //console.log(mintStatus, msg)
         if (mintStatus) {
             const NFTList = await getNFT(address);
